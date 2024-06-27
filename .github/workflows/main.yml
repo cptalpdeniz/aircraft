@@ -1,0 +1,10 @@
+name: Find File with Most Lines
+on: [push]
+jobs:
+  find-file-with-most-lines:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Find file with most lines
+      run: |
+        find . -type f -exec wc -l {} + | sort -n -r | head -n 1
